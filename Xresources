@@ -2,37 +2,41 @@
 URxvt*depth: 32
 URxvt*background: rgba:0000/0000/0200/c000
 
-! Theme Baskerville
-!*background:  #000000
-*foreground:  #919191
-! BLACK
-*color0:      #303030
-*color8:      #5E5E5E
-! WHITE
-*color7:      #C6C6C6
-*color15:     #FFFFFF
-! RED
-*color1:      #C10023
-*color9:      #FF8781
-! YELLOW
-*color3:      #B51D2C
-*color11:     #FF948B
-! GREEN
-*color2:      #A83334
-*color10:     #FFA095
-! CYAN
-*color6:      #9A413D
-*color14:     #FFAAA0
-! BLUE
-*color4:      #8C4B46
-*color12:     #FEB2AA
-! MAGENTA
-*color5:      #7D534F
-*color13:     #EBBBB5
-
 ! Font
 URxvt*font: xft:DroidSansMono:size=14:antialias=true
 URxvt*boldFont: xft:DroidSansMono:size=14:antialias=true
 
 ! Font resize oon the fly
 URxvt.perl-ext-common:resize-font
+
+! Scroll
+URxvt.scrollBar:   false
+
+! Theme Baskerville
+!*background:  #000000
+!*foreground:  #919191
+! BLACK
+!*color0:      #303030
+!*color8:      #5E5E5E
+! WHITE
+!*color7:      #C6C6C6
+!*color15:     #FFFFFF
+! RED
+!*color1:      #C10023
+!*color9:      #FF8781
+! YELLOW
+!*color3:      #B51D2C
+!*color11:     #FF948B
+! GREEN
+!*color2:      #A83334
+!*color10:     #FFA095
+! CYAN
+!*color6:      #9A413D
+!*color14:     #FFAAA0
+! BLUE
+!*color4:      #8C4B46
+!*color12:     #FEB2AA
+! MAGENTA
+!*color5:      #7D534F
+!*color13:     #EBBBB5
+
