@@ -1,0 +1,10 @@
+configure pam #gnome key-ring
+rofi
+waybar
+network-manager-applet
+python-pywal
+grim
+slurp
+wl-clipboard
+mako
+toastify
