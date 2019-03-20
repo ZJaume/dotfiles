@@ -39,7 +39,8 @@ export LESS_TERMCAP_mh=$(tput dim)
 
 if [ $(tty) == "/dev/tty3" ]; then
     export SHELL="/bin/fish"
-    export XKB_DEFAULT_LAYOUT=es(cat)
+    export XKB_DEFAULT_LAYOUT=es
+    export XKB_DEFAULT_VARIANT=cat
     sway
 fi
 
