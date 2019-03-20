@@ -1,9 +1,3 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
-
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -17,28 +11,51 @@ set $right l
 set $term urxvt
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu dmenu_path | dmenu | xargs swaymsg exec
+#set $menu dmenu_path | dmenu | xargs swaymsg exec
+set $menu rofi -show run -theme $HOME/.cache/wal/colors-rofi-dark.rasi | xargs swaymsg exec
+
+set $browser firefox
+
+# lock command
+set $lock "grim - | convert - -blur 5x5 /tmp/lock.png; swaylock -i /tmp/lock.png"
+
+# theming
+exec wal -R -a "75"
+include $HOME/.cache/wal/colors-sway
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Vimix-Laptop-Beryl'
+    gsettings set $gnome-schema icon-theme 'Papirus'
+}
+
+# Colors
+client.focused          $color5 $color2 $background $color9 $color5
+client.focused_inactive $color3 $color2 $background $color9 $color5
+client.unfocused        $color3 $color7 $background $color9 $color10
+client.urgent           $color7 $color7 $background $color9 $color10
+client.placeholder      $color8 $color7 $background $color9 $color10
+client.background       $background
 
 ### Idle configuration
 #
 # Example configuration:
 #
-#exec swayidle \
-#    timeout 300 'swaylock -c 000000' \
-#    timeout 600 'swaymsg "output * dpms off"' \
-#       resume 'swaymsg "output * dpms on"' \
-#    before-sleep 'swaylock -c 000000'
+exec swayidle \
+#    timeout 300 $lock \
+    timeout 600 'swaymsg "output * dpms off"' \
+       resume 'swaymsg "output * dpms on"' \
+    before-sleep $lock
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -57,6 +74,11 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
+input "2:7:SynPS/2_Synaptics_TouchPad" {
+    dwt enabled
+    tap enabled
+}
+
 
 ### Key bindings
 #
@@ -64,6 +86,9 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
     # start a terminal
     bindsym $mod+Return exec $term
+
+    # start browser
+    bindsym $mod+Shift+b exec $browser
 
     # kill focused window
     bindsym $mod+Shift+q kill
@@ -81,8 +106,25 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     # reload the configuration file
     bindsym $mod+Shift+c reload
 
+    # lockscreen
+    bindsym Ctrl+l exec $lock
+
     # exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+
+    # volume buttons
+    bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume 0 +10%; paplay $HOME/.config/sway/audio-volume-change.oga"
+    bindsym XF86AudioLowerVolume exec "pactl set-sink-volume 0 -10%; paplay $HOME/.config/sway/audio-volume-change.oga"
+    bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+    # brightness
+    bindsym XF86MonBrightnessUp exec light -A 5
+    bindsym XF86MonBrightnessDown exec light -U 5
+
+    # screenshots
+    bindsym Print exec grim - | wl-copy
+    bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy
+    bindsym Ctrl+Print exec grim $HOME/Imatges/$(date +'screenshot_%d-%m-%Y-%H%M%S.png')
+    bindsym Ctrl+Shift+Print exec grim -g "$(slurp)" $HOME/Imatges/$(date +'screenshot_%d-%m-%Y-%H%M%S.png')
 #
 # Moving around:
 #
@@ -110,28 +152,44 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # Workspaces:
 #
+    # terminal
+    set $work1 "1: "
+    # code
+    set $work2 "2: "
+    #firefox
+    set $work3 "3: "
+    #telegram
+    set $work4 "4: "
+    #misc
+    set $work5 "5"
+    #music
+    set $work6 "6: "
+    set $work7 "7"
+    set $work8 "8"
+    set $work9 "9"
+    set $work10 "10"
     # switch to workspace
-    bindsym $mod+1 workspace 1
-    bindsym $mod+2 workspace 2
-    bindsym $mod+3 workspace 3
-    bindsym $mod+4 workspace 4
-    bindsym $mod+5 workspace 5
-    bindsym $mod+6 workspace 6
-    bindsym $mod+7 workspace 7
-    bindsym $mod+8 workspace 8
-    bindsym $mod+9 workspace 9
-    bindsym $mod+0 workspace 10
+    bindsym $mod+1 workspace $work1
+    bindsym $mod+2 workspace $work2
+    bindsym $mod+3 workspace $work3
+    bindsym $mod+4 workspace $work4
+    bindsym $mod+5 workspace $work5
+    bindsym $mod+6 workspace $work6
+    bindsym $mod+7 workspace $work7
+    bindsym $mod+8 workspace $work8
+    bindsym $mod+9 workspace $work9
+    bindsym $mod+0 workspace $work10
     # move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace 1
-    bindsym $mod+Shift+2 move container to workspace 2
-    bindsym $mod+Shift+3 move container to workspace 3
-    bindsym $mod+Shift+4 move container to workspace 4
-    bindsym $mod+Shift+5 move container to workspace 5
-    bindsym $mod+Shift+6 move container to workspace 6
-    bindsym $mod+Shift+7 move container to workspace 7
-    bindsym $mod+Shift+8 move container to workspace 8
-    bindsym $mod+Shift+9 move container to workspace 9
-    bindsym $mod+Shift+0 move container to workspace 10
+    bindsym $mod+Shift+1 move container to workspace $work1
+    bindsym $mod+Shift+2 move container to workspace $work2
+    bindsym $mod+Shift+3 move container to workspace $work3
+    bindsym $mod+Shift+4 move container to workspace $work4
+    bindsym $mod+Shift+5 move container to workspace $work5
+    bindsym $mod+Shift+6 move container to workspace $work6
+    bindsym $mod+Shift+7 move container to workspace $work7
+    bindsym $mod+Shift+8 move container to workspace $work8
+    bindsym $mod+Shift+9 move container to workspace $work9
+    bindsym $mod+Shift+0 move container to workspace $work10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 #
@@ -200,23 +258,37 @@ bindsym $mod+r mode "resize"
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    font pango:DejaVu Sans Mono, FontAwesome 12
-    position top
-
+#bar {
+#    swaybar_command waybar
+#    font pango:DejaVu Sans Mono, FontAwesome 12
+#    position top
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+#    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+#    status_command waybar
 
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
+#    colors {
+#        statusline #ffffff
+#        background #323232
+#        inactive_workspace #32323200 #32323200 #5c5c5c
+#    }
+#}
+
+#
+# Window stuff
+#
+    gaps inner 5
+    gaps outer 10
+    smart_gaps on
+    default_border pixel 3
+    for_window [class="URxvt"] border pixel 5
+    for_window [class="Firefox"] border pixel 0
+    for_window [class="Firefox"] move window to workspace $work3
 
 exec xrdb -merge ~/.Xresources
-exec pulseaudio --start
+#exec pulseaudio --start
 exec nm-applet
+exec waybar
+exec mako
 
 include /etc/sway/config.d/*
