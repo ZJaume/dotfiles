@@ -286,6 +286,7 @@ bindsym $mod+r mode "resize"
     for_window [class="URxvt"] border pixel 5
     for_window [class="Firefox"] border pixel 0
     for_window [class="Firefox"] move window to workspace $work3
+    for_window [workspace=$work5] floating enable
 
 exec xrdb -merge ~/.Xresources
 #exec pulseaudio --start
