@@ -296,5 +296,6 @@ exec xrdb -merge ~/.Xresources
 exec nm-applet
 exec waybar
 exec mako
+exec nextcloud
 
 include /etc/sway/config.d/*
