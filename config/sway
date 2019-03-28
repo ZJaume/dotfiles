@@ -17,11 +17,13 @@ set $menu rofi -show run -theme $HOME/.cache/wal/colors-rofi-dark.rasi | xargs s
 set $browser firefox
 
 # lock command
-set $lock "grim - | convert - -blur 5x5 /tmp/lock.png; swaylock -i /tmp/lock.png"
+#set $lock "grim - | convert - -blur 3x3 /tmp/lock.png; swaylock -i /tmp/lock.png"
+set $lock "grim -t png - | corrupter -add 0 -mag 3 -boffset 5 - > /tmp/lock.png; swaylock -i /tmp/lock.png"
 
 # theming
 exec wal -R -a "75"
-include $HOME/.cache/wal/colors-sway
+include "$HOME/.cache/wal/colors-sway"
+output * bg $wallpaper fill
 
 ### Output configuration
 #
@@ -107,7 +109,7 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
     bindsym $mod+Shift+c reload
 
     # lockscreen
-    bindsym Ctrl+l exec $lock
+    bindsym Ctrl+Alt+l exec $lock
 
     # exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
