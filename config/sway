@@ -111,7 +111,7 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
     # lockscreen
     bindsym Ctrl+Alt+l exec $lock
 
-    # exit sway (logs you out of your Wayland session)
+    # exit sway
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
     # volume buttons
@@ -286,8 +286,10 @@ bindsym $mod+r mode "resize"
     workspace $work3 gaps inner 0
     default_border pixel 3
     for_window [class="URxvt"] border pixel 5
-    for_window [class="Firefox"] border pixel 0
+    for_window [class="Firefox"] border pixel 5
+    for_window [class="Firefox" window_type="normal"] border pixel 0
     for_window [class="Firefox"] move window to workspace $work3
+    #for_window [class="Firefox" ]
     for_window [workspace=$work5] floating enable
     floating_modifier Ctrl
 
