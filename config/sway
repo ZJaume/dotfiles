@@ -21,7 +21,7 @@ set $browser firefox
 set $lock "grim -t png - | corrupter -add 0 -mag 3 -boffset 5 - > /tmp/lock.png; swaylock -i /tmp/lock.png"
 
 # theming
-exec wal -R -a "75"
+exec wal -R -a "95"
 include "$HOME/.cache/wal/colors-sway"
 output * bg $wallpaper fill
 
