@@ -295,8 +295,8 @@ bindsym $mod+r mode "resize"
 exec xrdb -merge ~/.Xresources
 #exec pulseaudio --start
 exec nm-applet
-exec waybar
+exec_always waybar
 exec mako
-exec nextcloud
+exec --no-startup-id nextcloud
 
 include /etc/sway/config.d/*
