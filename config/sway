@@ -290,7 +290,7 @@ bar {
     for_window [class="Firefox"] border pixel 5
     for_window [class="Firefox" window_type="normal"] border pixel 0
     for_window [class="Firefox"] move window to workspace $work3
-    #for_window [class="Firefox" ]
+    for_window [workspace=$work4] floating enable
     for_window [workspace=$work5] floating enable
 
 exec xrdb -merge ~/.Xresources
