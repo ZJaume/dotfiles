@@ -1,10 +1,14 @@
-configure pam #gnome key-ring
+sway
 rofi
 waybar
-network-manager-applet
 python-pywal
 grim
 slurp
 wl-clipboard
 mako
 toastify
+pulseaudio
+pulseaudio-jack
+jack2
+cadence
+mpd-youtube-dl
