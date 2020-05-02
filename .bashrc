@@ -37,7 +37,9 @@ export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
 export LESS_TERMCAP_mr=$(tput rev)
 export LESS_TERMCAP_mh=$(tput dim)
 
-if [ $(tty) == "/dev/tty3" ]; then
+export MOSES=/home/$USER/repos/mosesdecoder/scripts
+
+if [ $(tty) == "/dev/tty1" ]; then
     export SHELL="/bin/fish"
     export XKB_DEFAULT_LAYOUT=es
     export XKB_DEFAULT_VARIANT=cat

@@ -1,13 +1,13 @@
 ! Transparency
-URxvt*depth: 32
-URxvt*background: rgba:0000/0000/0200/c000
+!URxvt*depth: 32
+!URxvt*background: rgba:0000/0000/0200/c000
 
 ! Font
-URxvt*font: xft:DroidSansMono:size=14:antialias=true
-URxvt*boldFont: xft:DroidSansMono:size=14:antialias=true
+URxvt.font: xft:DroidSansMono:size=12:antialias=true
+URxvt.boldFont: xft:DroidSansMono:size=12:antialias=true
 
 ! Font resize oon the fly
-URxvt.perl-ext-common:resize-font
+URxvt.perl-ext-common:default,resize-font
 
 ! Scroll
 URxvt.scrollBar:   false
