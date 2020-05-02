@@ -1,0 +1,347 @@
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+# Your preferred terminal emulator
+set $term termite
+# Your preferred application launcher
+# Note: it's recommended that you pass the final command to sway
+#set $menu dmenu_path | dmenu | xargs swaymsg exec
+set $menu rofi -show run -theme .cache/wal/colors-rofi-dark.rasi | xargs swaymsg exec
+
+set $browser firefox
+set $keep keepassxc
+set $mail thunderbird
+
+# lock command
+#set $lock "grim - | convert - -blur 3x3 /tmp/lock.png; swaylock -i /tmp/lock.png"
+set $corrupter "corrupter -add 0 -mag 3 -boffset 5"
+set $lock "grim -o DP-1 -t png - | "$corrupter" - > /tmp/lock-dp1.png; grim -o HDMI-A-2 -t png - | "$corrupter" - > /tmp/lock-hdmi.png ;swaylock -i DP-1:/tmp/lock-dp1.png -i HDMI-A-2:/tmp/lock-hdmi.png"
+
+# theming
+exec wal -R -a "80"
+exec_always xrdb -merge $HOME/.Xresources
+include "$HOME/.cache/wal/colors-sway"
+output * bg $wallpaper fill
+exec_always $HOME/.config/sway/set-colors-termite.sh 0.85
+
+### Output configuration
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+#
+# Example configuration:
+#
+#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+#
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+set $screen_left HDMI-A-2
+set $screen_right DP-1
+
+output eDP-1 disable
+output $screen_left pos 0 0 res 1920x1080
+output $screen_right pos 1920 0 res 1920x1080
+
+# Colors
+#client.focused          $color5 $color2 $background $color9 $color5
+#client.focused_inactive $color3 $color2 $background $color9 $color5
+#client.unfocused        $color3 $color7 $background $color9 $color10
+#client.urgent           $color7 $color7 $background $color9 $color10
+#client.placeholder      $color8 $color7 $background $color9 $color10
+#client.background       $background
+
+### Idle configuration
+#
+# Example configuration:
+#
+exec swayidle -w \
+    timeout 600 $lock \
+    timeout 900 'swaymsg "output * dpms off"' \
+         resume 'swaymsg "output * dpms on"' \
+    before-sleep $lock
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+### Input configuration
+#
+# Example configuration:
+#
+#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#   }
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+input "2:8:AlpsPS/2_ALPS_DualPoint_TouchPad" {
+    dwt enabled
+    tap enabled
+}
+
+input * xkb_layout "es"
+
+#
+# Workspaces:
+#
+    # terminal
+    set $work1 "1"
+    # firefox
+    set $work2 "2"
+    # thunderbird
+    set $work3 "3"
+    set $work4 "4"
+    set $work5 "5"
+    set $work6 "6"
+    set $work7 "7"
+    set $work8 "8"
+    set $work9 "9"
+    set $work10 "10"
+    # switch to workspace
+    bindsym $mod+1 workspace $work1
+    bindsym $mod+2 workspace $work2
+    bindsym $mod+3 workspace $work3
+    bindsym $mod+4 workspace $work4
+    bindsym $mod+5 workspace $work5
+    bindsym $mod+6 workspace $work6
+    bindsym $mod+7 workspace $work7
+    bindsym $mod+8 workspace $work8
+    bindsym $mod+9 workspace $work9
+    bindsym $mod+0 workspace $work10
+    # move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace $work1
+    bindsym $mod+Shift+2 move container to workspace $work2
+    bindsym $mod+Shift+3 move container to workspace $work3
+    bindsym $mod+Shift+4 move container to workspace $work4
+    bindsym $mod+Shift+5 move container to workspace $work5
+    bindsym $mod+Shift+6 move container to workspace $work6
+    bindsym $mod+Shift+7 move container to workspace $work7
+    bindsym $mod+Shift+8 move container to workspace $work8
+    bindsym $mod+Shift+9 move container to workspace $work9
+    bindsym $mod+Shift+0 move container to workspace $work10
+
+### Key bindings
+#
+# Basics:
+#
+    # start a terminal
+    bindsym $mod+Return exec $term; workspace $work1
+
+    # start apps
+    bindsym $mod+Shift+b exec $browser; workspace $work2
+
+    # kill focused window
+    bindsym $mod+Shift+q kill
+
+    # start your launcher
+    bindsym $mod+d exec $menu
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+    # reload the configuration file
+    bindsym $mod+Shift+c reload
+
+    # lockscreen
+    bindsym Ctrl+Alt+l exec $lock
+
+    # exit sway
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+
+    # media buttons
+    bindsym XF86AudioPlay exec "mpc toggle"
+    bindsym XF86AudioNext exec "mpc next"
+    bindsym XF86AudioPrev exec "mpc prev"
+
+    # volume buttons
+    bindsym XF86AudioRaiseVolume exec "pulsemixer --change-volume +5; paplay $HOME/.config/sway/audio-volume-change.oga"
+    bindsym XF86AudioLowerVolume exec "pulsemixer --change-volume -5; paplay $HOME/.config/sway/audio-volume-change.oga"
+    bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+    # brightness
+    bindsym XF86MonBrightnessUp exec light -A 10
+    bindsym XF86MonBrightnessDown exec light -U 10
+
+    # Display
+    bindsym XF86Display exec 'swaymsg "output eDP-1 toggle"'
+
+    # screenshots
+    bindsym Print exec grim - | wl-copy
+    bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy
+    bindsym Ctrl+Print exec grim $HOME/imatges/$(date +'screenshot_%d-%m-%Y-%H%M%S.png')
+    bindsym Ctrl+Shift+Print exec grim -g "$(slurp)" $HOME/imatges/$(date +'screenshot_%d-%m-%Y-%H%M%S.png')
+
+#
+# Music workspace
+#
+    # command aliases
+    for_window [title="music*"] move to workspace $work5
+    #for_window [title="music_list"] resize set 640 480
+    bindsym $mod+m workspace $work5
+    bindsym $mod+Shift+m exec $term -e 'ncmpcpp' -t 'music_list'
+
+    workspace $work5 gaps outer 100
+    workspace $work5 gaps inner 20
+
+
+#
+# Moving around:
+#
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+    # or use $mod+[up|down|left|right]
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # _move_ the focused window with the same, but add Shift
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+    # ditto, with arrow keys
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+#
+# Layout stuff:
+#
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    bindsym $mod+b splith
+    bindsym $mod+v splitv
+
+    # Switch the current container between different layout styles
+    bindsym $mod+s layout stacking
+    bindsym $mod+w layout tabbed
+    bindsym $mod+e layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+space focus mode_toggle
+
+    # move focus to the parent container
+    bindsym $mod+a focus parent
+#
+# Scratchpad:
+#
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+minus scratchpad show
+
+    # Apps on the scratchpad
+    for_window [class="KeePassXC"] floating enable
+    bindsym $mod+Shift+p exec $keep; scratchpad show
+    for_window [title="galculator"] move scratchpad
+#
+# Resizing containers:
+#
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+#
+# Status Bar:
+#
+bar {
+    swaybar_command waybar
+}
+
+#
+# Window stuff
+#
+    gaps inner 5
+    gaps outer 10
+    #smart_gaps on
+    workspace $work2 gaps outer 0
+    workspace $work2 gaps inner 0
+    workspace $work3 gaps inner 0
+    workspace $work3 gaps outer 0
+    workspace $work4 gaps inner 40
+    workspace $work4 gaps outer 40
+    # Thunderbird and firefox smart gaps
+    #workspace $work2 smart_gaps on
+    #workspace $work3 smart_gaps on
+    default_border pixel 3
+    # app_id for wayland native apps
+    for_window [app_id="termite"] border pixel 5
+    for_window [class="firefox" window_type="normal"] border none
+    assign [class="^firefox$"] $work2
+    assign [class="^Thunderbird$"] $work3
+    assign [app_id="termite"] $work1
+    assign [class="TelegramDesktop"] $work4
+    assign [class="Google Play Music Desktop Player"] $work5
+    assign [class="Riot"] $work6
+    workspace $work1 output $screen_right
+    workspace $work2 output $screen_left
+    workspace $work3 output $screen_left
+    workspace $work4 output $screen_left
+
+    # Focus new windows
+    focus_on_window_activation focus
+
+    # Floating windows
+    for_window [class="feh"] floating enable
+    for_window [window_role="pop-up"] floating enable
+
+#exec pulseaudio --start
+exec --no-startup-id mako
+exec $browser
+exec $term
+exec $mail
+exec telegram-desktop
+exec riot-desktop
+
+# music
+exec gpmdp
+#exec $term -e "ncmpcpp" -t "music_list"
+#exec $term -e "ncmpcpp" -t "music_vis"
+exec --no-startup-id wl-paste -w $HOME/.config/sway/youtube-clipboard.sh
+
+include /etc/sway/config.d/*
