@@ -161,9 +161,9 @@ input * xkb_layout "es"
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
     # media buttons
-    bindsym XF86AudioPlay exec "mpc toggle"
-    bindsym XF86AudioNext exec "mpc next"
-    bindsym XF86AudioPrev exec "mpc prev"
+    bindsym XF86AudioPlay exec "playerctl play-pause"
+    bindsym XF86AudioNext exec "playerctl next"
+    bindsym XF86AudioPrev exec "playerctl previous"
 
     # volume buttons
     bindsym XF86AudioRaiseVolume exec "pulsemixer --change-volume +5; paplay $HOME/.config/sway/audio-volume-change.oga"
