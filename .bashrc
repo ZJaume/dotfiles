@@ -43,6 +43,7 @@ if [ $(tty) == "/dev/tty1" ]; then
     export SHELL="/bin/fish"
     export XKB_DEFAULT_LAYOUT=es
     export XKB_DEFAULT_VARIANT=cat
+    export MOZ_ENABLE_WAYLAND=1
     sway
 fi
 
