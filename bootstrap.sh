@@ -13,9 +13,9 @@ function doIt() {
         --exclude "packages" \
         --exclude "README.md" \
         --exclude "LICENSE" \
+        --exclude ".termite.terminfo" \
         -avh --no-perms . ~;
     source ~/.bash_profile;
-    tic termite.terminfo;
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
