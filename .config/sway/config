@@ -332,15 +332,15 @@ bar {
 
 #exec pulseaudio --start
 exec --no-startup-id mako
-exec $browser
-exec $term
-exec $mail
-exec telegram-desktop
-exec riot-desktop
-exec redshift
+exec --no-startup-id $browser
+exec --no-startup-id $term
+exec --no-startup-id $mail
+exec --no-startup-id telegram-desktop
+exec --no-startup-id riot-desktop
+exec --no-startup-id redshift
 
 # music
-exec gpmdp
+exec --no-startup-id gpmdp
 #exec $term -e "ncmpcpp" -t "music_list"
 #exec $term -e "ncmpcpp" -t "music_vis"
 exec --no-startup-id wl-paste -w $HOME/.config/sway/youtube-clipboard.sh
