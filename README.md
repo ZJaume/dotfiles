@@ -1,6 +1,6 @@
 # dotfiles
 ## Requirements
-The instructions assume that `yay` package manager is installed and `fish` shell is used.
+The instructions assume that `yay` AUR Helper is installed and `fish` shell is used.
 Install it first
 ```
 git clone https://aur.archlinux.org/yay.git
