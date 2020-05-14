@@ -337,6 +337,7 @@ exec $term
 exec $mail
 exec telegram-desktop
 exec riot-desktop
+exec redshift
 
 # music
 exec gpmdp
