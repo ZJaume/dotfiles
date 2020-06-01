@@ -10,7 +10,7 @@ git pull origin master;
 function doIt() {
     rsync --exclude ".git/" \
         --exclude "bootstrap.sh" \
-        --exclude "packages" \
+        --exclude "packages.txt" \
         --exclude "README.md" \
         --exclude "LICENSE" \
         --exclude ".termite.terminfo" \
