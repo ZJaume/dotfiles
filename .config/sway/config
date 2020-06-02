@@ -46,8 +46,8 @@ set $screen_laptop eDP-1
 
 output $screen_left pos 0 0 res 1920x1080
 output $screen_right pos 1920 0 res 1920x1080
-bindswitch --reload --locked lid:on output $laptop disable
-bindswitch --reload --locked lid:off output $laptop enable
+bindswitch --reload --locked lid:on output $screen_laptop disable
+bindswitch --reload --locked lid:off output $screen_laptop enable
 
 # Colors
 #client.focused          $color5 $color2 $background $color9 $color5
