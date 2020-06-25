@@ -21,7 +21,7 @@ then
         # Resolve shortened youtu.be to obtain original url
         # from the HTTP headers
         URL=$(wl-paste \
-            | wget -S -q -i - 2>&1 \
+            | wget -S -q -i -O - 2>&1 \
             | grep 'Location: https://\(www.\)\{0,1\}youtube.com' \
             | cut -d ':' -f 2- \
             | tr -d ' ')
