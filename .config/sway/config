@@ -12,7 +12,7 @@ set $term termite
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 #set $menu dmenu_path | dmenu | xargs swaymsg exec
-set $menu rofi -show run -theme .cache/wal/colors-rofi-dark.rasi | xargs swaymsg exec
+set $menu rofi -show run -theme $HOME/.cache/wal/colors-rofi-dark.rasi | xargs swaymsg exec
 
 set $browser firefox
 set $keep keepassxc
@@ -21,7 +21,8 @@ set $mail thunderbird
 # lock command
 #set $lock "grim - | convert - -blur 3x3 /tmp/lock.png; swaylock -i /tmp/lock.png"
 set $corrupter "corrupter -add 0 -mag 3 -boffset 5"
-set $lock "grim -o DP-1 -t png - | "$corrupter" - > /tmp/lock-dp1.png; grim -o HDMI-A-2 -t png - | "$corrupter" - > /tmp/lock-hdmi.png ;swaylock -i DP-1:/tmp/lock-dp1.png -i HDMI-A-2:/tmp/lock-hdmi.png"
+set $lock $HOME/.config/sway/lockscreen.sh
+#set $lock "grim -o DP-1 -t png - | "$corrupter" - > /tmp/lock-dp1.png; grim -o HDMI-A-2 -t png - | "$corrupter" - > /tmp/lock-hdmi.png ;swaylock -i DP-1:/tmp/lock-dp1.png -i HDMI-A-2:/tmp/lock-hdmi.png"
 
 # theming
 exec wal -R -a "80"
