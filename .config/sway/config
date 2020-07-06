@@ -318,7 +318,7 @@ bar {
     assign [app_id="firefox"] $work2
     assign [app_id="thunderbird"] $work3
     assign [app_id="termite"] $work1
-    assign [class="TelegramDesktop"] $work4
+    assign [app_id="telegramdesktop"] $work4
     assign [class="Google Play Music Desktop Player"] $work5
     assign [class="Riot"] $work6
     workspace $work1 output $screen_right
