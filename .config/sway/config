@@ -14,7 +14,7 @@ set $term termite
 #set $menu dmenu_path | dmenu | xargs swaymsg exec
 set $menu rofi -show run -theme $HOME/.cache/wal/colors-rofi-dark.rasi | xargs swaymsg exec
 
-set $browser "MOZ_ENABLE_WAYLAND=1 firefox"
+set $browser firefox
 set $keep keepassxc
 set $mail thunderbird
 

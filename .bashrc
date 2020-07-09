@@ -47,6 +47,7 @@ if [ $(tty) == "/dev/tty1" ]; then
     export XKB_DEFAULT_LAYOUT=es
     export XKB_DEFAULT_VARIANT=cat
     export QT_QPA_PLATFORM=wayland
+    export MOZ_ENABLE_WAYLAND=1
     sway
 fi
 
