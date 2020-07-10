@@ -316,7 +316,7 @@ bar {
     for_window [app_id="termite"] border pixel 5
     for_window [app_id="firefox"] border none
     assign [app_id="firefox"] $work2
-    assign [class="Thunderbird"] $work3
+    assign [app_id="thunderbird"] $work3
     assign [app_id="termite"] $work1
     assign [app_id="telegramdesktop"] $work4
     assign [class="Google Play Music Desktop Player"] $work5
