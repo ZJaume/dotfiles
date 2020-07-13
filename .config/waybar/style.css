@@ -74,6 +74,7 @@ window#waybar.chromium {
 #backlight,
 #network,
 #pulseaudio,
+#custom-spotify,
 #custom-media,
 #tray,
 #mode,
@@ -185,20 +186,24 @@ label:focus {
     color: #2d3436;
 }
 
-#mpd {
+#mpd,
+#custom-spotify {
     background-color: #66cc99;
     color: #2a5c45;
 }
 
-#mpd.disconnected {
+#mpd.disconnected,
+#custom-spotify.disconnected {
     background-color: #f53c3c;
 }
 
-#mpd.stopped {
+#mpd.stopped,
+#custom-spotify.stopped {
     background-color: #90b1b1;
 }
 
-#mpd.paused {
+#mpd.paused,
+#custom-spotify.paused {
     background-color: #51a37a;
 }
 
