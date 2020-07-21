@@ -321,7 +321,7 @@ bar {
     assign [app_id="telegramdesktop"] $work4
     assign [class="Google Play Music Desktop Player"] $work5
     assign [class="Spotify"] $work5
-    assign [class="Riot"] $work6
+    assign [class="Element"] $work6
     workspace $work1 output $screen_right
     workspace $work2 output $screen_left
     workspace $work3 output $screen_left
@@ -340,7 +340,7 @@ exec --no-startup-id $browser
 exec --no-startup-id $term
 exec --no-startup-id $mail
 exec --no-startup-id telegram-desktop
-exec --no-startup-id riot-desktop
+exec --no-startup-id element-desktop
 exec --no-startup-id redshift
 
 # music
