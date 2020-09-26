@@ -17,7 +17,7 @@
 	"answerupgrade": "",
 	"gitbin": "git",
 	"gpgbin": "gpg",
-	"gpgflags": "",
+	"gpgflags": "--keyserver keyserver.ubuntu.com",
 	"mflags": "",
 	"sortby": "votes",
 	"searchby": "name-desc",

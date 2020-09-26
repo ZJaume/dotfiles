@@ -230,12 +230,16 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+#
+# Status Bar:
+#
 bar {
     swaybar_command waybar
 }
 
-### Window Stuff
-
+#
+# Window stuff
+#
     gaps inner 5
     gaps outer 10
     #smart_gaps on
@@ -276,4 +280,4 @@ exec --no-startup-id mako
 #exec --no-startup-id wl-paste -w $HOME/.config/sway/youtube-clipboard.sh
 
 include /etc/sway/config.d/*
-include $HOME/.config/sway/$HOSTNAME
+include $HOME/.config/sway/`hostname`
