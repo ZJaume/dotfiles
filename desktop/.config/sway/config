@@ -6,7 +6,7 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $term termite
+set $term alacritty
 set $menu rofi -show run | xargs swaymsg exec
 
 set $browser firefox
@@ -18,11 +18,9 @@ set $lock $HOME/.config/sway/lockscreen.sh
 
 # theming
 exec wal -R -a "80"
-exec_always xrdb -merge $HOME/.Xresources
 include "$HOME/.cache/wal/colors-sway"
 output * bg $wallpaper fill
-exec_always $HOME/.config/sway/set-colors-termite.sh 0.85
-
+#exec_always $HOME/.config/sway/set-colors-termite.sh 0.85
 
 #
 # Pywal colors!
