@@ -1,0 +1,31 @@
+## Input configuration
+input "2:8:AlpsPS/2_ALPS_DualPoint_TouchPad" {
+    dwt enabled
+    tap enabled
+}
+
+input "type:keyboard" {
+    xkb_layout es
+    xkb_variant cat
+}
+
+## Output configuration
+set $screen_right HDMI-A-2
+set $screen_left DP-1
+set $screen_laptop eDP-1
+
+output $screen_left pos 0 0 res 1920x1080
+output $screen_right pos 1920 0 res 1920x1080
+bindswitch --reload --locked lid:on output $screen_laptop disable
+bindswitch --reload --locked lid:off output $screen_laptop enable
+
+# Turn-off/on display
+bindsym XF86Display exec 'swaymsg "output eDP-1 toggle"'
+
+exec --no-startup-id $browser
+exec --no-startup-id $term
+exec --no-startup-id $mail
+exec --no-startup-id telegram-desktop
+exec --no-startup-id element-desktop
+exec --no-startup-id redshift
+exec --no-startup-id spotify

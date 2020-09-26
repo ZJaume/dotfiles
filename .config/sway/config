@@ -2,16 +2,11 @@
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
-# Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
 set $term termite
-# Your preferred application launcher
-# Note: it's recommended that you pass the final command to sway
-#set $menu dmenu_path | dmenu | xargs swaymsg exec
 set $menu rofi -show run -theme $HOME/.cache/wal/colors-rofi-dark.rasi | xargs swaymsg exec
 
 set $browser firefox
@@ -19,10 +14,7 @@ set $keep keepassxc
 set $mail thunderbird
 
 # lock command
-#set $lock "grim - | convert - -blur 3x3 /tmp/lock.png; swaylock -i /tmp/lock.png"
-set $corrupter "corrupter -add 0 -mag 3 -boffset 5"
 set $lock $HOME/.config/sway/lockscreen.sh
-#set $lock "grim -o DP-1 -t png - | "$corrupter" - > /tmp/lock-dp1.png; grim -o HDMI-A-2 -t png - | "$corrupter" - > /tmp/lock-hdmi.png ;swaylock -i DP-1:/tmp/lock-dp1.png -i HDMI-A-2:/tmp/lock-hdmi.png"
 
 # theming
 exec wal -R -a "80"
@@ -30,25 +22,6 @@ exec_always xrdb -merge $HOME/.Xresources
 include "$HOME/.cache/wal/colors-sway"
 output * bg $wallpaper fill
 exec_always $HOME/.config/sway/set-colors-termite.sh 0.85
-
-### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
-set $screen_right HDMI-A-2
-set $screen_left DP-1
-set $screen_laptop eDP-1
-
-output $screen_left pos 0 0 res 1920x1080
-output $screen_right pos 1920 0 res 1920x1080
-bindswitch --reload --locked lid:on output $screen_laptop disable
-bindswitch --reload --locked lid:off output $screen_laptop enable
 
 # Colors
 #client.focused          $color5 $color2 $background $color9 $color5
@@ -59,9 +32,6 @@ bindswitch --reload --locked lid:off output $screen_laptop enable
 #client.background       $background
 
 ### Idle configuration
-#
-# Example configuration:
-#
 exec swayidle -w \
     timeout 600 $lock \
     timeout 900 'swaymsg "output * dpms off"' \
@@ -72,29 +42,8 @@ exec swayidle -w \
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
-### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
-input "2:8:AlpsPS/2_ALPS_DualPoint_TouchPad" {
-    dwt enabled
-    tap enabled
-}
 
-input * xkb_layout "es"
-
-#
-# Workspaces:
-#
+### Workspaces
     # terminal
     set $work1 "1"
     # firefox
@@ -132,9 +81,7 @@ input * xkb_layout "es"
     bindsym $mod+Shift+0 move container to workspace $work10
 
 ### Key bindings
-#
-# Basics:
-#
+
     # start a terminal
     bindsym $mod+Return exec $term; workspace $work1
 
@@ -175,9 +122,6 @@ input * xkb_layout "es"
     # brightness
     bindsym XF86MonBrightnessUp exec light -A 10
     bindsym XF86MonBrightnessDown exec light -U 10
-
-    # Display
-    bindsym XF86Display exec 'swaymsg "output eDP-1 toggle"'
 
     # screenshots
     bindsym Print exec grim - | wl-copy
@@ -250,9 +194,6 @@ input * xkb_layout "es"
 #
 # Scratchpad:
 #
-    # Sway has a "scratchpad", which is a bag of holding for windows.
-    # You can send windows there and get them back later.
-
     # Move the currently focused window to the scratchpad
     bindsym $mod+Shift+minus move scratchpad
 
@@ -289,16 +230,12 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-#
-# Status Bar:
-#
 bar {
     swaybar_command waybar
 }
 
-#
-# Window stuff
-#
+### Window Stuff
+
     gaps inner 5
     gaps outer 10
     #smart_gaps on
@@ -334,20 +271,9 @@ bar {
     for_window [class="feh"] floating enable
     for_window [window_role="pop-up"] floating enable
 
-#exec pulseaudio --start
 exec --no-startup-id mako
-exec --no-startup-id $browser
-exec --no-startup-id $term
-exec --no-startup-id $mail
-exec --no-startup-id telegram-desktop
-exec --no-startup-id element-desktop
-exec --no-startup-id redshift
 
-# music
-exec --no-startup-id spotify
-#exec --no-startup-id gpmdp
-#exec $term -e "ncmpcpp" -t "music_list"
-#exec $term -e "ncmpcpp" -t "music_vis"
-exec --no-startup-id wl-paste -w $HOME/.config/sway/youtube-clipboard.sh
+#exec --no-startup-id wl-paste -w $HOME/.config/sway/youtube-clipboard.sh
 
 include /etc/sway/config.d/*
+include $HOME/.config/sway/$HOSTNAME
