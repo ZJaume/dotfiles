@@ -40,6 +40,8 @@ export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
 export LESS_TERMCAP_mr=$(tput rev)
 export LESS_TERMCAP_mh=$(tput dim)
 
+(cat ~/.cache/wal/sequences &)
+
 export MOSES=/home/$USER/repos/mosesdecoder/scripts
 
 if [ $(tty) == "/dev/tty1" ]; then
