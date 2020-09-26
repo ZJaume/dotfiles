@@ -10,8 +10,9 @@ yay -S fish
 ```
 
 ## Instructions
-Clone the repository
+Clone the repository (on the home directory)
 ```
+cd ~
 git clone https://github.com/ZJaume/dotfiles
 cd dotfiles
 ```
@@ -21,9 +22,9 @@ Install the required packages for desktop environment
 yay -Syu (paste -sd ' ' packages.txt)
 ```
 
-Copy config files to home directory
+Install config files with stow
 ```
-./bootstrap.sh
+stow server desktop
 ```
 
 Now login on tty1 and enjoy!
