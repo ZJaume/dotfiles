@@ -257,14 +257,13 @@ bar {
     #workspace $work3 smart_gaps on
     default_border pixel 3
     # app_id for wayland native apps
-    for_window [app_id="termite"] border pixel 5
+    for_window [app_id="Alacritty"] border pixel 5
     for_window [app_id="firefox"] border none
     assign [app_id="firefox"] $work2
     assign [app_id="thunderbird"] $work3
-    assign [app_id="termite"] $work1
+    assign [app_id="Alacritty"] $work1
     assign [app_id="telegramdesktop"] $work4
     assign [class="Google Play Music Desktop Player"] $work5
-    assign [class="Spotify"] $work5
     assign [class="Element"] $work6
     workspace $work1 output $screen_right
     workspace $work2 output $screen_left
