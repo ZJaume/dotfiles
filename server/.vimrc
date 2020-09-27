@@ -24,6 +24,7 @@ set clipboard=unnamed             " use the system clipboard
 set wildmenu                      " enable bash style tab completion
 set wildmode=list:longest,full
 set mouse=a
+set ttymouse=sgr
 set background=dark
 
 map <F2> :NERDTreeToggle<cr>
