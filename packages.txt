@@ -1,12 +1,15 @@
 sway
-rofi
+rofi-lbonn-wayland-git
 waybar
 alacritty
 python-pywal
+ttf-roboto-mono
+otf-font-awesome
+ttf-fira-sans
 grim
 slurp
 wl-clipboard
-redshift-wlr-gamma-control-git
+redshift-wayland-git
 mako
 toastify
 pulseaudio

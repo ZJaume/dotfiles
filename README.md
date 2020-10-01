@@ -19,7 +19,7 @@ cd dotfiles
 
 Install the required packages for desktop environment
 ```
-yay -Syu (paste -sd ' ' packages.txt)
+yay -Syu - < packages.txt
 ```
 
 Install config files with stow
