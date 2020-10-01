@@ -1,6 +1,7 @@
 sway
 rofi
 waybar
+alacritty
 python-pywal
 grim
 slurp
