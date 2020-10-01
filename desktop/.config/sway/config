@@ -17,7 +17,8 @@ set $mail thunderbird
 set $lock $HOME/.config/sway/lockscreen.sh
 
 # theming
-exec wal -R -a "80"
+font Roboto Mono 12
+exec wal -R -a "85"
 include "$HOME/.cache/wal/colors-sway"
 output * bg $wallpaper fill
 #exec_always $HOME/.config/sway/set-colors-termite.sh 0.85
