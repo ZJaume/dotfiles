@@ -1,4 +1,7 @@
 sway
+swayidle
+swaylock
+xorg-server-xwayland
 rofi-lbonn-wayland-git
 waybar
 alacritty
