@@ -18,7 +18,12 @@ PERL_MB_OPT="--install_base \"/home/$USER/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/$USER/perl5"; export PERL_MM_OPT;
 
 # Change libva driver
-export LIBVA_DRIVER_NAME=i965
+if [ "$HOSTNAME" == "archer" ]
+then
+    export LIBVA_DRIVER_NAME=radeonsi
+else
+    export LIBVA_DRIVER_NAME=i965
+fi
 
 # Start ssh-agent if is not started
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then

@@ -1,0 +1,53 @@
+## Input configuration
+input "type:keyboard" {
+    xkb_layout es
+    xkb_variant cat
+}
+
+## Output configuration
+output DP-1 adaptive_sync on
+
+
+#
+# Window stuff
+#
+    gaps inner 5
+    gaps outer 10
+    #smart_gaps on
+    workspace $work2 gaps outer 0
+    workspace $work2 gaps inner 0
+    workspace $work3 gaps inner 0
+    workspace $work3 gaps outer 0
+    workspace $work4 gaps inner 40
+    workspace $work4 gaps outer 40
+    # Thunderbird and firefox smart gaps
+    #workspace $work2 smart_gaps on
+    #workspace $work3 smart_gaps on
+    default_border pixel 3
+    # app_id for wayland native apps
+    for_window [app_id="Alacritty"] border pixel 5
+    for_window [app_id="firefox"] border none
+    assign [app_id="firefox"] $work2
+    assign [app_id="thunderbird"] $work3
+    assign [app_id="Alacritty"] $work1
+    assign [app_id="telegramdesktop"] $work4
+    assign [class="Element"] $work6
+    workspace $work1 output $screen_right
+    workspace $work2 output $screen_left
+    workspace $work3 output $screen_left
+    workspace $work4 output $screen_left
+
+    # Focus new windows
+    focus_on_window_activation focus
+
+    # Floating windows
+    for_window [class="feh"] floating enable
+    for_window [window_role="pop-up"] floating enable
+
+
+exec --no-startup-id $browser
+exec --no-startup-id $term
+exec --no-startup-id $mail
+exec --no-startup-id telegram-desktop
+exec --no-startup-id element-desktop
+exec --no-startup-id redshift
