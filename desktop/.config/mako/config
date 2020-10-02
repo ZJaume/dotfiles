@@ -2,3 +2,5 @@ font="Roboto Mono 13"
 
 height=600
 width=400
+
+default-timeout=5000
