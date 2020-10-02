@@ -137,10 +137,9 @@ exec swayidle -w \
 # Music workspace
 #
     # command aliases
-    #for_window [title="music*"] move to workspace $work5
-    #for_window [title="music_list"] resize set 640 480
+    assign [title="Spotify"] $work5
     bindsym $mod+m workspace $work5
-    bindsym $mod+Shift+m exec $term -e 'ncmpcpp' -t 'music_list'
+    bindsym $mod+Shift+m exec $term -t 'Spotify' -e 'spt'
 
     workspace $work5 gaps outer 100
     workspace $work5 gaps inner 20
