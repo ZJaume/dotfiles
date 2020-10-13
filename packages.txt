@@ -28,5 +28,4 @@ profile-sync-daemon
 thunderbird
 thunderbird-i18n-ca
 libnotify
-feh
-mupdf
+imv
