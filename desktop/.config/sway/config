@@ -205,8 +205,6 @@ exec swayidle -w \
     bindsym $mod+minus scratchpad show
 
     # Apps on the scratchpad
-    for_window [class="KeePassXC"] floating enable
-    bindsym $mod+Shift+p exec $keep; scratchpad show
     for_window [title="galculator"] move scratchpad
 #
 # Resizing containers:
@@ -243,6 +241,9 @@ bar {
 exec --no-startup-id mako
 
 #exec --no-startup-id wl-paste -w $HOME/.config/sway/youtube-clipboard.sh
+
+for_window [app_id="org.keepassxc.KeePassXC"] floating enable
+bindsym $mod+Shift+p exec $keep;
 
 include /etc/sway/config.d/*
 include $HOME/.config/sway/`hostname`
