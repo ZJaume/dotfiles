@@ -55,4 +55,5 @@ exec --no-startup-id $term
 exec --no-startup-id $mail
 exec --no-startup-id telegram-desktop
 exec --no-startup-id rocketchat-desktop
+exec --no-startup-id element-desktop --hidden
 exec --no-startup-id redshift
