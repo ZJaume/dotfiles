@@ -29,6 +29,7 @@ output DP-1 adaptive_sync on
     # app_id for wayland native apps
     for_window [app_id="Alacritty"] border pixel 5
     for_window [app_id="firefox"] border none
+    for_window [app_id="thunderbird"] border none
     for_window [class="Steam"] border none
     assign [app_id="firefox"] $work2
     assign [app_id="thunderbird"] $work3
