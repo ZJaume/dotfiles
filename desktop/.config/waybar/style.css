@@ -207,3 +207,22 @@ label:focus {
     background-color: #51a37a;
 }
 
+/*
+ * Override with wal colorscheme if present
+ */
+@import url('../../.cache/wal/colors-waybar.css');
+
+window#waybar {
+    background-color: @background;
+    color: @foreground;
+}
+
+#tray {
+    background-color: @color1;
+}
+
+#mpd,
+#custom-spotify {
+    background-color: @color2;
+    color: @color7;
+}
