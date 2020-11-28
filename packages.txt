@@ -17,8 +17,10 @@ mako
 toastify
 pulseaudio
 playerctl
+spotify
 spotifyd
 spotify-tui
+spicetify-cli
 libsecret
 corrupter-git
 keepassxc

@@ -137,9 +137,11 @@ exec swayidle -w \
 # Music workspace
 #
     # command aliases
-    assign [title="Spotify"] $work5
     bindsym $mod+m workspace $work5
-    bindsym $mod+Shift+m exec $term -t 'Spotify' -e 'spt'
+    assign [class="Spotify"] $work5
+    bindsym $mod+Shift+m exec spotify
+    # assign [title="Spotify"] $work5
+    # bindsym $mod+Shift+m exec $term -t 'Spotify' -e 'spt'
 
     workspace $work5 gaps outer 100
     workspace $work5 gaps inner 20
