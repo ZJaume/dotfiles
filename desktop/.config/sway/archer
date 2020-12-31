@@ -7,6 +7,9 @@ input "type:keyboard" {
 ## Output configuration
 output DP-1 adaptive_sync on
 
+# Change brightness of external monitor
+bindsym $mod+Shift+u exec "ddcutil setvcp 10 - 5"
+bindsym $mod+Shift+i exec "ddcutil setvcp 10 + 5"
 
 #
 # Window stuff
