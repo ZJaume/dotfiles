@@ -1,0 +1,10 @@
+program_options:
+  tray: false
+  appindicator: true
+  terminal: 'alacritty --working-directory'
+  automount: true
+  notify: true
+  password_cache: 2
+
+notifications:
+  timeout: 3.0

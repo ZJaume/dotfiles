@@ -31,3 +31,4 @@ thunderbird
 thunderbird-i18n-ca
 libnotify
 imv
+udiskie

@@ -241,7 +241,7 @@ bar {
 }
 
 exec --no-startup-id mako --background-color "$background" --text-color "$foreground" --border-color "$color13"
-
+exec --no-startup-id udiskie
 #exec --no-startup-id wl-paste -w $HOME/.config/sway/youtube-clipboard.sh
 
 for_window [app_id="org.keepassxc.KeePassXC"] floating enable
