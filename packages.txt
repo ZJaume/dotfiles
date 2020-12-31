@@ -1,6 +1,7 @@
 sway
 swayidle
 swaylock
+swaynagmode
 xorg-server-xwayland
 rofi-lbonn-wayland-git
 waybar

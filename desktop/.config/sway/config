@@ -84,6 +84,38 @@ exec swayidle -w \
     bindsym $mod+Shift+9 move container to workspace $work9
     bindsym $mod+Shift+0 move container to workspace $work10
 
+#
+# Swaynagmode
+#
+set {
+    $nag         exec swaynagmode
+    $nag_exit    $nag --exit
+    $nag_confirm $nag --confirm
+    $nag_select  $nag --select
+}
+mode "nag" {
+bindsym {
+    Ctrl+d    mode "default"
+
+    Ctrl+c    $nag_exit
+    q         $nag_exit
+    Escape    $nag_exit
+
+    Return    $nag_confirm
+
+    Tab       $nag_select prev
+    Shift+Tab $nag_select next
+
+    Left      $nag_select next
+    Right     $nag_select prev
+
+    Up        $nag_select next
+    Down      $nag_select prev
+}
+}
+swaynag_command $nag -R
+
+
 ### Key bindings
 
     # start a terminal
@@ -112,7 +144,7 @@ exec swayidle -w \
     bindsym Ctrl+Alt+l exec $lock
 
     # exit sway
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec $nag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
     # media buttons
     bindsym XF86AudioPlay exec "playerctl play-pause"
@@ -232,6 +264,7 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+
 
 #
 # Status Bar:
