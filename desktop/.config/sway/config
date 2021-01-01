@@ -277,6 +277,9 @@ exec --no-startup-id mako --background-color "$background" --text-color "$foregr
 exec --no-startup-id udiskie
 #exec --no-startup-id wl-paste -w $HOME/.config/sway/youtube-clipboard.sh
 
+for_window [app_id="firefox" title="^Picture-in-Picture$|^Imatge sobre imatge$"] \
+    floating enable, move absolute position 1280 720, sticky enable, \
+    resize set width 640, resize set height 360
 for_window [app_id="org.keepassxc.KeePassXC"] floating enable
 bindsym $mod+Shift+p exec $keep;
 
