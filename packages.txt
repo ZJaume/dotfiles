@@ -33,3 +33,6 @@ thunderbird-i18n-ca
 libnotify
 imv
 udiskie
+pipewire
+xdg-desktop-portal
+xdg-desktop-portal-wlr
