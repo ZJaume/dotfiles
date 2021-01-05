@@ -273,15 +273,25 @@ bar {
     swaybar_command waybar
 }
 
+#
+# General window stuff
+#
+# Floating windows
+for_window [class="imv"] floating enable
+for_window [window_role="pop-up"] floating enable
+
+# Focus new windows
+focus_on_window_activation focus
+
+for_window [app_id="org.keepassxc.KeePassXC"] floating enable
+bindsym $mod+Shift+p exec $keep;
+
 exec --no-startup-id mako --background-color "$background" --text-color "$foreground" --border-color "$color13"
 exec --no-startup-id udiskie
 #exec --no-startup-id wl-paste -w $HOME/.config/sway/youtube-clipboard.sh
 
-for_window [app_id="firefox" title="^Picture-in-Picture$|^Imatge sobre imatge$"] \
-    floating enable, move absolute position 1280 720, sticky enable, \
-    resize set width 640, resize set height 360
-for_window [app_id="org.keepassxc.KeePassXC"] floating enable
-bindsym $mod+Shift+p exec $keep;
+# Redshift manually to Madrid to remove network dependency
+exec --no-startup-id redshift -l 40.416:-3.716
 
 include /etc/sway/config.d/*
 include $HOME/.config/sway/`hostname`

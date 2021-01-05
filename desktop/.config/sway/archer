@@ -23,8 +23,8 @@ bindsym $mod+Shift+i exec "ddcutil setvcp 10 + 5"
     workspace $work3 gaps outer 0
     workspace $work4 gaps inner 40
     workspace $work4 gaps outer 40
-    workspace $work7 gaps outer 0
-    workspace $work7 gaps inner 0
+    workspace $work6 gaps outer 0
+    workspace $work6 gaps inner 0
     # Thunderbird and firefox smart gaps
     #workspace $work2 smart_gaps on
     #workspace $work3 smart_gaps on
@@ -38,21 +38,14 @@ bindsym $mod+Shift+i exec "ddcutil setvcp 10 + 5"
     assign [app_id="thunderbird"] $work3
     assign [app_id="Alacritty"] $work1
     assign [app_id="telegramdesktop"] $work4
-    assign [class="Element"] $work6
-    assign [class="Rocket.Chat"] $work6
-    assign [class="Steam"] $work7
-    workspace $work1 output $screen_right
-    workspace $work2 output $screen_left
-    workspace $work3 output $screen_left
-    workspace $work4 output $screen_left
+    assign [class="Element"] $work5
+    assign [class="Rocket.Chat"] $work5
+    assign [class="Steam"] $work6
 
-    # Focus new windows
-    focus_on_window_activation focus
-
-    # Floating windows
-    for_window [class="imv"] floating enable
-    for_window [window_role="pop-up"] floating enable
-
+# Firefox PIP mode
+for_window [app_id="firefox" title="^Picture-in-Picture$|^Imatge sobre imatge$"] \
+    floating enable, move absolute position 1280 720, sticky enable, \
+    resize set width 640, resize set height 360
 
 exec --no-startup-id $browser
 exec --no-startup-id $term
@@ -60,4 +53,3 @@ exec --no-startup-id $mail
 exec --no-startup-id telegram-desktop
 exec --no-startup-id rocketchat-desktop
 exec --no-startup-id element-desktop --hidden
-exec --no-startup-id redshift
