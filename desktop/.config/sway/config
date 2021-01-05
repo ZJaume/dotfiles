@@ -169,14 +169,14 @@ swaynag_command $nag -R
 # Music workspace
 #
     # command aliases
-    bindsym $mod+m workspace $work5
-    assign [class="Spotify"] $work5
+    bindsym $mod+m workspace $work9
+    assign [class="Spotify"] $work9
     bindsym $mod+Shift+m exec spotify
-    # assign [title="Spotify"] $work5
+    # assign [title="Spotify"] $work9
     # bindsym $mod+Shift+m exec $term -t 'Spotify' -e 'spt'
 
-    workspace $work5 gaps outer 100
-    workspace $work5 gaps inner 20
+    workspace $work9 gaps outer 100
+    workspace $work9 gaps inner 20
 
 
 #
