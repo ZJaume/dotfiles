@@ -1,3 +1,4 @@
+stow
 sway
 swayidle
 swaylock
@@ -30,9 +31,13 @@ firefox-i18n-ca
 profile-sync-daemon
 thunderbird
 thunderbird-i18n-ca
+hunspell-en_US
+hunspell-es_any
+hunspell-ca
 libnotify
 imv
 udiskie
 pipewire
 xdg-desktop-portal
 xdg-desktop-portal-wlr
+telegram-desktop
