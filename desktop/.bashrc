@@ -5,33 +5,9 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
-
+# Set default editor
 export VISUAL=vim
 export EDITOR=vim
-
-PATH="/home/$USER/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/$USER/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/$USER/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/$USER/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/$USER/perl5"; export PERL_MM_OPT;
-
-# Change libva driver
-if [ "$HOSTNAME" == "archer" ]
-then
-    export LIBVA_DRIVER_NAME=radeonsi
-else
-    export LIBVA_DRIVER_NAME=i965
-fi
-
-# Start ssh-agent if is not started
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    ssh-agent > ~/.ssh-agent-thing
-fi
-if [[ "$SSH_AGENT_PID" == "" ]]; then
-    eval "$(<~/.ssh-agent-thing)"
-fi
 
 # Colors to man
 export MANROFFOPT='-c'
@@ -45,11 +21,26 @@ export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
 export LESS_TERMCAP_mr=$(tput rev)
 export LESS_TERMCAP_mh=$(tput dim)
 
-(cat ~/.cache/wal/sequences &)
-
-export MOSES=/home/$USER/repos/mosesdecoder/scripts
-
+# Desktop environment
 if [ $(tty) == "/dev/tty1" ]; then
+    # Change libva driver
+    if [ "$HOSTNAME" == "archer" ]
+    then
+        export LIBVA_DRIVER_NAME=radeonsi
+    else
+        export LIBVA_DRIVER_NAME=i965
+    fi
+
+    # Start ssh-agent if is not started
+    if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+        ssh-agent > ~/.ssh-agent-thing
+    fi
+    #if [[ "$SSH_AGENT_PID" == "" ]]; then
+    #    eval "$(<~/.ssh-agent-thing)"
+    #fi
+
+    (cat ~/.cache/wal/sequences &)
+
     export SHELL="/bin/fish"
     export XKB_DEFAULT_LAYOUT=es
     export XKB_DEFAULT_VARIANT=cat
@@ -59,5 +50,6 @@ if [ $(tty) == "/dev/tty1" ]; then
     export XDG_SESSION_TYPE=wayland
     export XDG_CURRENT_DESKTOP=sway
     sway
+else
+    exec fish
 fi
-
