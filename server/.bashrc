@@ -8,6 +8,7 @@
 # Set default editor
 export VISUAL=vim
 export EDITOR=vim
+export SUDO_EDITOR=vim
 
 # Colors to man
 export MANROFFOPT='-c'
