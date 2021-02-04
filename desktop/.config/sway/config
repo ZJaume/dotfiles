@@ -152,9 +152,9 @@ swaynag_command $nag -R
     bindsym XF86AudioPrev exec "playerctl previous"
 
     # volume buttons
-    bindsym XF86AudioRaiseVolume exec "pulsemixer --change-volume +5; paplay $HOME/.config/sway/audio-volume-change.oga"
-    bindsym XF86AudioLowerVolume exec "pulsemixer --change-volume -5; paplay $HOME/.config/sway/audio-volume-change.oga"
-    bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+    bindsym XF86AudioRaiseVolume exec "pulsemixer --change-volume +5; paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga"
+    bindsym XF86AudioLowerVolume exec "pulsemixer --change-volume -5; paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga"
+    bindsym XF86AudioMute exec pulsemixer --toggle-mute
     # brightness
     bindsym XF86MonBrightnessUp exec light -A 10
     bindsym XF86MonBrightnessDown exec light -U 10

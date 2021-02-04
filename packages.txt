@@ -17,7 +17,11 @@ wl-clipboard
 redshift-wayland-git
 mako
 toastify
-pulseaudio
+pipewire
+pipewire-pulse
+sound-theme-freedesktop
+xdg-desktop-portal
+xdg-desktop-portal-wlr
 playerctl
 spotify
 spotifyd
@@ -37,7 +41,4 @@ hunspell-ca
 libnotify
 imv
 udiskie
-pipewire
-xdg-desktop-portal
-xdg-desktop-portal-wlr
 telegram-desktop
