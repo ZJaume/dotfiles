@@ -39,8 +39,8 @@ bindsym $mod+Shift+i exec "ddcutil setvcp 10 + 5"
     assign [app_id="thunderbird"] $work3
     assign [app_id="Alacritty"] $work1
     assign [app_id="telegramdesktop"] $work4
-    assign [class="Element"] $work5
-    assign [class="Rocket.Chat"] $work5
+    assign [app_id="Element"] $work5
+    assign [app_id="Rocket.Chat"] $work5
     assign [class="Steam"] $work6
     assign [app_id="lutris"] $work6
 
