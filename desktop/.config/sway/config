@@ -46,7 +46,6 @@ exec swayidle -w \
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
-
 ### Workspaces
     # terminal
     set $work1 "1"
@@ -152,12 +151,12 @@ swaynag_command $nag -R
     bindsym XF86AudioPrev exec "playerctl previous"
 
     # volume buttons
-    bindsym XF86AudioRaiseVolume exec "pulsemixer --change-volume +5; paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga"
-    bindsym XF86AudioLowerVolume exec "pulsemixer --change-volume -5; paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga"
-    bindsym XF86AudioMute exec pulsemixer --toggle-mute
+    bindsym XF86AudioRaiseVolume exec pulsemixer --change-volume +5 && pulsemixer --get-volume | cut -f1 -d' ' >$SWAYSOCK.wob; paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
+    bindsym XF86AudioLowerVolume exec pulsemixer --change-volume -5 && pulsemixer --get-volume | cut -f1 -d' ' >$SWAYSOCK.wob; paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
+    bindsym XF86AudioMute exec pulsemixer --toggle-mute && echo 0 >$SWAYSOCK.wob
     # brightness
-    bindsym XF86MonBrightnessUp exec light -A 10
-    bindsym XF86MonBrightnessDown exec light -U 10
+    bindsym XF86MonBrightnessUp exec light -A 10 && light -G | cut -d'.' -f1 >$SWAYSOCK.wob
+    bindsym XF86MonBrightnessDown exec light -U 10 && light -G | cut -d'.' -f1 >$SWAYSOCK.wob
 
     # screenshots
     bindsym Print exec grim - | wl-copy
@@ -291,6 +290,9 @@ exec --no-startup-id udiskie
 
 # Redshift manually to Madrid to remove network dependency
 exec --no-startup-id redshift -l 40.416:-3.716
+
+# wob progress bar socket
+exec "mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob"
 
 include /etc/sway/config.d/*
 include $HOME/.config/sway/`hostname`

@@ -6,6 +6,7 @@ swaynagmode
 xorg-server-xwayland
 rofi-lbonn-wayland-git
 waybar
+wob
 alacritty
 python-pywal
 ttf-roboto-mono

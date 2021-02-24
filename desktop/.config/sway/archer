@@ -8,8 +8,8 @@ input "type:keyboard" {
 output DP-1 adaptive_sync on
 
 # Change brightness of external monitor
-bindsym $mod+Shift+u exec "ddcutil setvcp 10 - 5"
-bindsym $mod+Shift+i exec "ddcutil setvcp 10 + 5"
+bindsym $mod+Shift+u exec ddcutil setvcp 10 - 5 && ddcutil -t getvcp 10 | cut -f4 -d' ' >$SWAYSOCK.wob
+bindsym $mod+Shift+i exec ddcutil setvcp 10 + 5 && ddcutil -t getvcp 10 | cut -f4 -d' ' >$SWAYSOCK.wob
 
 #
 # Window stuff
