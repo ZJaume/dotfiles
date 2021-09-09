@@ -22,6 +22,9 @@ export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
 export LESS_TERMCAP_mr=$(tput rev)
 export LESS_TERMCAP_mh=$(tput dim)
 
+# Export bin home
+export PATH=$PATH:$HOME/bin
+
 # Desktop environment
 if [ $(tty) == "/dev/tty1" ]; then
     # Change libva driver

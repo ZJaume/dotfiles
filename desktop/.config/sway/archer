@@ -8,8 +8,8 @@ input "type:keyboard" {
 output DP-1 adaptive_sync on
 
 # Change brightness of external monitor
-bindsym $mod+Shift+u exec "ddcutil setvcp 10 - 5"
-bindsym $mod+Shift+i exec "ddcutil setvcp 10 + 5"
+bindsym $mod+Shift+u exec ddcutil setvcp 10 - 5 && ddcutil -t getvcp 10 | cut -f4 -d' ' >$SWAYSOCK.wob
+bindsym $mod+Shift+i exec ddcutil setvcp 10 + 5 && ddcutil -t getvcp 10 | cut -f4 -d' ' >$SWAYSOCK.wob
 
 #
 # Window stuff
@@ -34,13 +34,15 @@ bindsym $mod+Shift+i exec "ddcutil setvcp 10 + 5"
     for_window [app_id="firefox"] border none
     for_window [app_id="thunderbird"] border none
     for_window [class="Steam"] border none
+    for_window [app_id="lutris"] float enable
     assign [app_id="firefox"] $work2
     assign [app_id="thunderbird"] $work3
     assign [app_id="Alacritty"] $work1
     assign [app_id="telegramdesktop"] $work4
-    assign [class="Element"] $work5
-    assign [class="Rocket.Chat"] $work5
+    assign [app_id="Element"] $work5
+    assign [app_id="Rocket.Chat"] $work5
     assign [class="Steam"] $work6
+    assign [app_id="lutris"] $work6
 
 # Firefox PIP mode
 for_window [app_id="firefox" title="^Picture-in-Picture$|^Imatge sobre imatge$"] \
