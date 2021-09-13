@@ -1,0 +1,2 @@
+--rpl '{0#} $_=sprintf("%d",$job->seq()-1)'
+--rpl '{0%} $_=sprintf("%d",$job->slot()-1)'
