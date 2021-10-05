@@ -15,7 +15,7 @@ ttf-fira-sans
 grim
 slurp
 wl-clipboard
-redshift-wayland-git
+gammastep
 mako
 toastify
 pipewire

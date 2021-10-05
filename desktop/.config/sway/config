@@ -288,8 +288,8 @@ exec --no-startup-id mako --background-color "$background" --text-color "$foregr
 exec --no-startup-id udiskie
 #exec --no-startup-id wl-paste -w $HOME/.config/sway/youtube-clipboard.sh
 
-# Redshift manually to Madrid to remove network dependency
-exec --no-startup-id redshift -l 40.416:-3.716
+# Gammastep manually to Madrid to remove network dependency
+exec --no-startup-id gammastep -l 40.416:-3.716
 
 # wob progress bar socket
 exec "mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob"
