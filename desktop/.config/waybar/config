@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "custom/spotify"],
     "modules-center": ["sway/window"],
-    "modules-right": [ "custom/updates", "network", "cpu", "memory", "thermal", "pulseaudio", "battery", "clock", "tray"],
+    "modules-right": [ "custom/updates", "network", "cpu", "memory", "thermal", "pulseaudio", "battery", "idle_inhibitor", "clock", "tray"],
     // Modules configuration
     "sway/workspaces": {
         "disable-scroll": true,
@@ -96,6 +96,13 @@
         },
         "on-click": "pavucontrol"
     },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
     "mpd": {
         "format": "♪ {stateIcon} {artist} - {title}",
         "format-disconnected": "♪ Disconnected",
@@ -126,6 +133,7 @@
         "max-length": 10,
         "interval": 7200,
         "exec": "checkupdates > /tmp/updates; U=$(cat /tmp/updates | wc -l); if (($U > 0)); then echo $U' '; else echo '  '; fi",
+        "exec-if": "exit 0",
         "on-click-right": "checkupdates > /tmp/updates; U=$(cat /tmp/updates | wc -l); if (($U > 0)); then echo $U' '; else echo '  '; fi",
         "on-click": "toastify send -t 10000 'Updates available' \"$(cat /tmp/updates)\""
     },
