@@ -81,7 +81,7 @@
         "tooltip-format-wifi": "{essid} ({signalStrength}%): {ipaddr}/{netmask} ",
     },
     "pulseaudio": {
-        //"scroll-step": 1,
+        "scroll-step": 5,
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon} ",
         "format-muted": "",
@@ -94,7 +94,7 @@
             "car": "",
             "default": ["", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pulsemixer --toggle-mute"
     },
     "idle_inhibitor": {
         "format": "{icon}",
