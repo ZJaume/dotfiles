@@ -53,7 +53,7 @@ if [ $(tty) == "/dev/tty1" ]; then
     export MOZ_WEBRENDER=1
     export XDG_SESSION_TYPE=wayland
     export XDG_CURRENT_DESKTOP=sway
-    sway
+    sway 2> ~/.log/sway.log
 else
     exec fish
 fi
