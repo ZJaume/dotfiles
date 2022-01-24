@@ -17,9 +17,10 @@ font:
     family: Roboto Mono
     style: Bold Italic
 
-  size: 12
+  size: 11
 
 
-background_opacity: 0.90
+window:
+  opacity: 0.95
 
   #dynamic_title: true
