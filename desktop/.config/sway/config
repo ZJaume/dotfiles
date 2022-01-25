@@ -7,7 +7,7 @@ set $down j
 set $up k
 set $right l
 set $term alacritty
-set $menu rofi -show run | xargs swaymsg exec
+set $menu rofi -show run #| xargs swaymsg exec
 
 set $browser firefox
 set $keep keepassxc
@@ -161,8 +161,8 @@ swaynag_command $nag -R
     # screenshots
     bindsym Print exec grim - | wl-copy
     bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy
-    bindsym Ctrl+Print exec grim $HOME/imatges/$(date +'screenshot_%d-%m-%Y-%H%M%S.png')
-    bindsym Ctrl+Shift+Print exec grim -g "$(slurp)" $HOME/imatges/$(date +'screenshot_%d-%m-%Y-%H%M%S.png')
+    bindsym Ctrl+Print exec grim $HOME/Imatges/$(date +'screenshot_%d-%m-%Y-%H%M%S.png')
+    bindsym Ctrl+Shift+Print exec grim -g "$(slurp)" $HOME/Imatges/$(date +'screenshot_%d-%m-%Y-%H%M%S.png')
 
 #
 # Music workspace
