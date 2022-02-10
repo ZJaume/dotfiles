@@ -4,6 +4,9 @@
 [pull]
     rebase = true
 
+[core]
+    excludesfile = '~/.gitignore_global'
+
 [alias]
     # git aliases from https://blog.praveen.science/git-shortcuts/
     s    = status
