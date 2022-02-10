@@ -1,5 +1,8 @@
 alias rsync "rsync --info=progress2"
 alias sv "source venv/bin/activate.fish"
+alias awk "awk -F\t"
+alias pzcat "pigz -dc"
+alias tmpclean "find /tmp/ -user $USER -name tmp\* -exec rm -r "{}" \;"
 alias battery "upower -i /org/freedesktop/UPower/devices/battery_BAT1 | grep 'percentage\|state'"
 
 if status is-interactive; and test -s ~/.cache/wal/sequences
