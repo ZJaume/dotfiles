@@ -27,4 +27,7 @@ set mouse=a
 set ttymouse=sgr
 set background=dark
 
+au BufNewFile,BufRead Snakefile set syntax=snakemake
+au BufNewFile,BufRead *.snake set syntax=snakemake
+
 map <F2> :NERDTreeToggle<cr>
