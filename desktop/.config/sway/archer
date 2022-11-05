@@ -4,6 +4,10 @@ input "type:keyboard" {
     xkb_variant cat
 }
 
+input "type:mouse" {
+    scroll_factor 1.2
+}
+
 ## Output configuration
 output DP-1 adaptive_sync on
 #output DP-1 mode 1920x1080@120Hz
@@ -34,13 +38,14 @@ bindsym $mod+Shift+i exec ddcutil setvcp 10 + 5 && ddcutil -t getvcp 10 | cut -f
     for_window [app_id="Alacritty"] border pixel 5
     for_window [app_id="firefox"] border none
     for_window [app_id="thunderbird"] border none
+    for_window [app_id="telegramdesktop"] border none
     for_window [class="Steam"] border none
     for_window [app_id="lutris"] float enable
     assign [app_id="firefox"] $work2
     assign [app_id="thunderbird"] $work3
     assign [app_id="Alacritty"] $work1
     assign [app_id="telegramdesktop"] $work4
-    assign [app_id="Element"] $work5
+    assign [app_id="Electron"] $work5
     assign [app_id="Rocket.Chat"] $work5
     assign [class="Steam"] $work6
     assign [app_id="lutris"] $work6
@@ -55,4 +60,4 @@ exec --no-startup-id $term
 exec --no-startup-id $mail
 exec --no-startup-id telegram-desktop
 exec --no-startup-id rocketchat-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland
-exec --no-startup-id element-desktop --hidden --enable-features=UseOzonePlatform --ozone-platform=wayland
+exec --no-startup-id mattermost-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland
