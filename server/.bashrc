@@ -13,6 +13,9 @@ export PATH=$HOME/cuda/lib64${PATH:+:$PATH}
 export PATH=$HOME/bin${PATH:+:$PATH}
 export PATH=$HOME/.local/bin${PATH:+:$PATH}
 
+# Persistent ssh_auth_sock on old tmuxes
+export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+
 # Colors to man
 export MANROFFOPT='-c'
 export LESS_TERMCAP_mb=$(tput bold; tput setaf 2)
