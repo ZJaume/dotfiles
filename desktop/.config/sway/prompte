@@ -44,7 +44,7 @@ bindsym XF86Display exec 'swaymsg "output eDP-1 toggle"'
     assign [app_id="firefox"] $work2
     assign [app_id="thunderbird"] $work3
     assign [app_id="Alacritty"] $work1
-    assign [app_id="telegramdesktop"] $work4
+    assign [app_id="org.telegram.desktop"] $work4
     assign [app_id="Rocket.Chat"] $work5
     assign [class="Element"] $work5
     workspace $work1 output $screen_right
