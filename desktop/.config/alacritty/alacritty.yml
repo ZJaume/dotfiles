@@ -20,4 +20,6 @@ font:
   size: 11
 
 
-  #dynamic_title: true
+window:
+  opacity: 1
+
