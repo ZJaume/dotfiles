@@ -10,7 +10,6 @@ export VISUAL=vim
 export EDITOR=vim
 export SUDO_EDITOR=vim
 export PATH=$HOME/cuda/lib64${PATH:+:$PATH}
-export PATH=$HOME/bin${PATH:+:$PATH}
 export PATH=$HOME/.local/bin${PATH:+:$PATH}
 
 # Persistent ssh_auth_sock on old tmuxes
