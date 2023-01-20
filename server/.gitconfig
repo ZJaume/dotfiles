@@ -23,6 +23,7 @@
 
     d    = diff
     dc   = diff --cached
+    dh   = diff HEAD
 
     hide = update-index --assume-unchanged
     unhide = update-index --no-assume-unchanged
