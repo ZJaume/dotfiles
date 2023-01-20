@@ -13,8 +13,8 @@ output DP-1 adaptive_sync on
 #output DP-1 mode 1920x1080@120Hz
 
 # Change brightness of external monitor
-bindsym $mod+Shift+u exec ddcutil setvcp 10 - 5 && ddcutil -t getvcp 10 | cut -f4 -d' ' >$SWAYSOCK.wob
-bindsym $mod+Shift+i exec ddcutil setvcp 10 + 5 && ddcutil -t getvcp 10 | cut -f4 -d' ' >$SWAYSOCK.wob
+bindsym $mod+Shift+u exec ddcutil setvcp 10 - 20 && ddcutil -t getvcp 10 | cut -f4 -d' ' >$SWAYSOCK.wob
+bindsym $mod+Shift+i exec ddcutil setvcp 10 + 20 && ddcutil -t getvcp 10 | cut -f4 -d' ' >$SWAYSOCK.wob
 
 #
 # Window stuff
