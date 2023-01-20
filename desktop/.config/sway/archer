@@ -40,7 +40,7 @@ bindsym $mod+Shift+i exec ddcutil setvcp 10 + 5 && ddcutil -t getvcp 10 | cut -f
     for_window [app_id="thunderbird"] border none
     for_window [app_id="telegramdesktop"] border none
     for_window [class="Steam"] border none
-    for_window [app_id="lutris"] float enable
+    for_window [app_id="file-roller"] floating enable
     assign [app_id="firefox"] $work2
     assign [app_id="thunderbird"] $work3
     assign [app_id="Alacritty"] $work1
