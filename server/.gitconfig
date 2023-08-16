@@ -67,6 +67,11 @@
     pu   = push -u
     puo  = push -u origin
 
+    st  = stash
+    stp = stash pop
+    stl = stash list
+    stc = stash clear
+
     spl = svn rebase
     sps = svn dcommit
 
