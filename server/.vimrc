@@ -30,4 +30,8 @@ set background=dark
 au BufNewFile,BufRead Snakefile set syntax=snakemake
 au BufNewFile,BufRead *.snake set syntax=snakemake
 
+" let g:SuperTabMappingForward = '<nul>'
+" let g:SuperTabMappingBackward = '<s-nul>'
+let g:SuperTabCrMapping=1
+
 map <F2> :NERDTreeToggle<cr>
