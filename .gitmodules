@@ -1,3 +1,15 @@
 [submodule "server/.vim/pack/plugins/start/vim-toml"]
 	path = server/.vim/pack/plugins/start/vim-toml
 	url = https://github.com/cespare/vim-toml
+[submodule "server/.vim/pack/plugins/start/vim-surround"]
+	path = server/.vim/pack/plugins/start/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "server/.vim/pack/plugins/start/vim-repeat"]
+	path = server/.vim/pack/plugins/start/vim-repeat
+	url = https://github.com/tpope/vim-repeat
+[submodule "server/.vim/pack/plugins/start/supertab"]
+	path = server/.vim/pack/plugins/start/supertab
+	url = https://github.com/ervandew/supertab
+[submodule "server/.vim/pack/plugins/start/vim-commentary"]
+	path = server/.vim/pack/plugins/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary
