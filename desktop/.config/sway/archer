@@ -47,7 +47,7 @@ bindsym $mod+Shift+i exec ddcutil setvcp 10 + 20 && ddcutil -t getvcp 10 | cut -
     assign [app_id="org.telegram.desktop"] $work4
     assign [app_id="Electron"] $work5
     assign [app_id="Rocket.Chat"] $work5
-    assign [class="Steam"] $work6
+    assign [class="steam"] $work6
     assign [app_id="lutris"] $work6
 
 # Firefox PIP mode
@@ -59,5 +59,6 @@ exec --no-startup-id $browser
 exec --no-startup-id $term
 exec --no-startup-id $mail
 exec --no-startup-id telegram-desktop
-exec --no-startup-id rocketchat-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland
-exec --no-startup-id mattermost-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland
+#exec --no-startup-id rocketchat-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland
+#exec --no-startup-id mattermost-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland
+exec --no-startup-id wljoywake -t 60
