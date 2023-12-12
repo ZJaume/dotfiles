@@ -3,7 +3,7 @@ syntax on                         " show syntax highlighting
 filetype plugin indent on
 set autoindent                    " set auto indent
 set ts=4                          " set indent to 4 spaces
-set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 set nocompatible                  " don't need to be compatible with old vim
 " set relativenumber                " show relative line numbers
 set showmatch                     " show bracket matches
