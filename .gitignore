@@ -1,2 +1,9 @@
-# Automatically generated psd.conf
+# Ignore binaries that are installed in each machine
+# allowonly the ones that are installed with dotfiles
+server/.local/bin
+!server/.local/bin/vimv
+
+# Ignore parallel temporary directory
+server/.parallel/tmp/
+
 .psd.conf
