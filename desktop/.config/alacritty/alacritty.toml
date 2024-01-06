@@ -1,0 +1,24 @@
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 10
+
+[font.bold]
+family = "Roboto Mono"
+style = "Bold"
+
+[font.bold_italic]
+family = "Roboto Mono"
+style = "Bold Italic"
+
+[font.italic]
+family = "Roboto Mono"
+style = "Italic"
+
+[font.normal]
+family = "Roboto Mono"
+style = "regular"
+
+[window]
+opacity = 1
