@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "custom/spotify"],
     "modules-center": ["sway/window"],
-    "modules-right": [ "custom/updates", "network", "cpu", "memory", "thermal", "pulseaudio", "battery", "idle_inhibitor", "clock", "tray"],
+    "modules-right": [ "custom/updates", "network", "cpu", "memory", "thermal", "wireplumber", "battery", "idle_inhibitor", "clock", "tray"],
     // Modules configuration
     "sway/workspaces": {
         "disable-scroll": true,
@@ -80,7 +80,7 @@
         "tooltip-format-ethernet": "{ifname} : {ipaddr}/{netmask}  ",
         "tooltip-format-wifi": "{essid} ({signalStrength}%): {ipaddr}/{netmask} ",
     },
-    "pulseaudio": {
+    "wireplumber": {
         "scroll-step": 5,
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon} ",
@@ -94,7 +94,7 @@
             "car": "",
             "default": ["", ""]
         },
-        "on-click": "pulsemixer --toggle-mute"
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     },
     "idle_inhibitor": {
         "format": "{icon}",

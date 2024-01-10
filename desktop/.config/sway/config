@@ -151,14 +151,14 @@ swaynag_command $nag -R
     bindsym XF86AudioPrev exec "playerctl previous"
 
     # volume buttons
-    bindsym XF86AudioRaiseVolume exec pulsemixer --change-volume +5 && pulsemixer --get-volume | cut -f1 -d' ' >$SWAYSOCK.wob; paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
-    bindsym XF86AudioLowerVolume exec pulsemixer --change-volume -5 && pulsemixer --get-volume | cut -f1 -d' ' >$SWAYSOCK.wob; paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
-    bindsym XF86AudioMute exec pulsemixer --toggle-mute && echo 0 >$SWAYSOCK.wob
+    bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && wpctl get-volume @DEFAULT_AUDIO_SINK@ | cut -f2 -d'.' >$SWAYSOCK.wob; paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
+    bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && wpctl get-volume @DEFAULT_AUDIO_SINK@ | cut -f2 -d'.' >$SWAYSOCK.wob; paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
+    bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && echo 0 >$SWAYSOCK.wob
     # brightness
     bindsym XF86MonBrightnessUp exec light -A 10 && light -G | cut -d'.' -f1 >$SWAYSOCK.wob
     bindsym XF86MonBrightnessDown exec light -U 10 && light -G | cut -d'.' -f1 >$SWAYSOCK.wob
 
-    # screenshots
+    # screenshot2
     bindsym Print exec grim - | wl-copy
     bindsym Shift+Print exec grim -g "$(slurp)" - | wl-copy
     bindsym Ctrl+Print exec grim $HOME/Imatges/$(date +'screenshot_%d-%m-%Y-%H%M%S.png')
