@@ -10,7 +10,7 @@ input "type:keyboard" {
 }
 
 ## Output configuration
-set $screen_right HDMI-A-2
+set $screen_right HDMI-A-1
 set $screen_left DP-1
 set $screen_laptop eDP-1
 

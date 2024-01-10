@@ -31,12 +31,7 @@ export LESS_TERMCAP_mh=$(tput dim)
 # Desktop environment
 if [ $(tty) == "/dev/tty1" ]; then
     # Change libva driver
-    if [ "$HOSTNAME" == "archer" ]
-    then
-        export LIBVA_DRIVER_NAME=radeonsi
-    else
-        export LIBVA_DRIVER_NAME=i965
-    fi
+    export LIBVA_DRIVER_NAME=radeonsi
 
     # Start ssh-agent if is not started
     if ! pgrep -u "$USER" ssh-agent > /dev/null; then
