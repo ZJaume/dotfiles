@@ -1,6 +1,7 @@
 ## Input configuration
 input "type:touchpad" {
     dwt enabled
+    dwtp enabled
     tap enabled
 }
 
