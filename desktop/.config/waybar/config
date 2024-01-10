@@ -65,6 +65,7 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
+        "format-plugged": " {capacity}% {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
