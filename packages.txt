@@ -1,5 +1,6 @@
 stow
 inetutils
+pacman-contrib
 sway
 swayidle
 swaylock
