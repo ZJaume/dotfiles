@@ -34,4 +34,6 @@ au BufNewFile,BufRead *.snake set syntax=snakemake
 " let g:SuperTabMappingBackward = '<s-nul>'
 let g:SuperTabCrMapping=1
 
+autocmd FileType c,cpp,java setlocal commentstring=//\ %s " use // for comments in C
+
 map <F2> :NERDTreeToggle<cr>
