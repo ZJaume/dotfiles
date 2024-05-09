@@ -11,11 +11,3 @@ alias yay "paru"
 if status is-interactive; and test -s ~/.cache/wal/sequences
     cat ~/.cache/wal/sequences &
 end
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-if test -d /home/jzaragoza/miniconda3
-    eval /home/jzaragoza/miniconda3/bin/conda "shell.fish" "hook" $argv | source
-end
-# <<< conda initialize <<<
-
