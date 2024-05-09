@@ -7,7 +7,7 @@ swaylock
 swaynagmode
 qt5-wayland
 xorg-server-xwayland
-rofi-lbonn-wayland-git
+rofi-wayland
 waybar
 wob
 alacritty
