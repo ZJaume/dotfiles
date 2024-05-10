@@ -7,3 +7,5 @@ server/.local/bin
 server/.parallel/tmp/
 
 .psd.conf
+
+server/.vim/.netrwhist
