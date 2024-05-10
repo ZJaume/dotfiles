@@ -9,20 +9,18 @@
 export VISUAL=vim
 export EDITOR=vim
 export SUDO_EDITOR=vim
-if [ -d "/usr/local/go/bin" ] ; then
-    export PATH="/usr/local/go/bin:$PATH"
-fi
-if [ -d "$HOME/cuda/lib64" ] ; then
-    export PATH="$HOME/cuda/lib64:$PATH"
-fi
-if [ -d "$HOME/.cargo/bin" ] ; then
-    export PATH="$HOME/.cargo/bin:$PATH"
-fi
-if [ -d "$HOME/go/bin" ] ; then
-    export PATH="$HOME/go/bin:$PATH"
-fi
-#export PATH=$HOME/.local/bin${PATH:+:$PATH}
-
+paths=(
+    "$HOME/.local/bin"
+    "/usr/local/go/bin"
+    "$HOME/cuda/lib64"
+    "$HOME/.cargo/bin"
+    "$HOME/go/bin"
+)
+for dir in "${paths[@]}"; do
+    if [ -d $dir ] ; then
+        export PATH="$dir:$PATH"
+    fi
+done
 # Persistent ssh_auth_sock on old tmuxes
 export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 
