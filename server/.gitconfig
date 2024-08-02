@@ -66,6 +66,7 @@
     ps   = push
     pu   = push -u
     puo  = push -u origin
+    puf  = push --force-with-lease
 
     st  = stash
     stp = stash pop
