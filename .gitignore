@@ -6,6 +6,8 @@ server/.local/bin
 # Ignore parallel temporary directory
 server/.parallel/tmp/
 
+server/.config/fish/fish_variables
+
 .psd.conf
 
 server/.vim/.netrwhist
