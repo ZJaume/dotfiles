@@ -263,6 +263,17 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+set $mode_system <small><b>L</b>ock, <b>E</b>xit, <b>S</b>uspend, <b>R</b>eboot, <b>P</b>oweroff</small>
+bindsym XF86PowerOff mode "$mode_system"
+bindsym $mod+p mode "$mode_system"
+mode --pango_markup "$mode_system" {
+    bindsym Escape mode default
+    bindsym r exec systemctl reboot; mode default
+    bindsym p exec systemctl poweroff; mode default
+    bindsym s exec systemctl suspend; mode default
+    bindsym l exec loginctl lock-session $XDG_SESSION_ID; mode default
+    bindsym e exit
+}
 
 #
 # Status Bar:
