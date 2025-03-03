@@ -11,3 +11,6 @@ server/.config/fish/fish_variables
 .psd.conf
 
 server/.vim/.netrwhist
+
+server/.ssh/known_hosts*
+server/.ssh/config*
