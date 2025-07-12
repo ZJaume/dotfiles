@@ -47,3 +47,4 @@ libnotify
 imv
 udiskie
 telegram-desktop
+yazi

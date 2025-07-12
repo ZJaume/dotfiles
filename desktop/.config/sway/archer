@@ -58,7 +58,6 @@ for_window [app_id="firefox" title="^Picture-in-Picture$|^Imatge sobre imatge$"]
 exec --no-startup-id $browser
 exec --no-startup-id $term
 exec --no-startup-id $mail
-exec --no-startup-id telegram-desktop
 #exec --no-startup-id rocketchat-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland
 #exec --no-startup-id mattermost-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland
 exec --no-startup-id wljoywake -t 60
