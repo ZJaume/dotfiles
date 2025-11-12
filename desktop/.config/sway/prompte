@@ -43,7 +43,7 @@ bindsym XF86Display exec 'swaymsg "output eDP-1 toggle"'
     for_window [app_id="Alacritty"] border pixel 5
     for_window [app_id="firefox"] border none
     assign [app_id="firefox"] $work2
-    assign [app_id="thunderbird"] $work3
+    assign [app_id="org.mozilla.Thunderbird"] $work3
     assign [app_id="Alacritty"] $work1
     assign [app_id="org.telegram.desktop"] $work4
     assign [app_id="Rocket.Chat"] $work5
