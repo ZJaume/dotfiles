@@ -37,12 +37,12 @@ bindsym $mod+Shift+i exec ddcutil setvcp 10 + 20 && ddcutil -t getvcp 10 | cut -
     # app_id for wayland native apps
     for_window [app_id="Alacritty"] border pixel 5
     for_window [app_id="firefox"] border none
-    for_window [app_id="thunderbird"] border none
-    for_window [app_id="telegramdesktop"] border none
+    for_window [app_id="org.mozilla.Thunderbird"] border none
+    for_window [app_id="org.telegram.desktop"] border none
     for_window [class="Steam"] border none
     for_window [app_id="file-roller"] floating enable
     assign [app_id="firefox"] $work2
-    assign [app_id="thunderbird"] $work3
+    assign [app_id="org.mozilla.Thunderbird"] $work3
     assign [app_id="Alacritty"] $work1
     assign [app_id="org.telegram.desktop"] $work4
     assign [app_id="Electron"] $work5
