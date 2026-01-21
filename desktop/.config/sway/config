@@ -297,6 +297,7 @@ bindsym $mod+Shift+p exec $keep;
 
 exec --no-startup-id mako --background-color "$background" --text-color "$foreground" --border-color "$color13"
 exec --no-startup-id udiskie
+exec --no-startup-id $HOME/.config/sway/monitor-screencast.sh
 #exec --no-startup-id wl-paste -w $HOME/.config/sway/youtube-clipboard.sh
 
 # Gammastep manually to Madrid to remove network dependency
