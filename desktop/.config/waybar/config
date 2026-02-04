@@ -68,7 +68,9 @@
         "format-plugged": " {capacity}% {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""],
+        "on-click": "sudo -n tlp chargeonce",
+        "on-click-right": "sudo -n tlp fullcharge"
     },
     "battery#bat2": {
         "bat": "BAT2"
