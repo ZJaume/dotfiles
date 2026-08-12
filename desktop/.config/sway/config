@@ -7,7 +7,7 @@ set $down j
 set $up k
 set $right l
 set $term alacritty
-set $menu rofi -show run #| xargs swaymsg exec
+set $menu rofi -show drun #| xargs swaymsg exec
 
 set $browser firefox
 set $keep keepassxc
@@ -170,7 +170,7 @@ swaynag_command $nag -R
     # command aliases
     #bindsym $mod+m workspace $work9
     bindsym $mod+m exec sway-run-or-raise spotify Spotify
-    for_window [class="Spotify"] move window to workspace $work9
+    for_window [app_id="spotify"] move window to workspace $work9
     # bindsym $mod+Shift+m exec $term -t 'Spotify' -e 'spt'
 
     workspace $work9 gaps outer 100
