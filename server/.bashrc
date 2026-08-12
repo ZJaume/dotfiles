@@ -60,6 +60,7 @@ if [ $(tty) == "/dev/tty1" ]; then
     export GTK_THEME=Adwaita:dark
     export XDG_SESSION_TYPE=wayland
     export XDG_CURRENT_DESKTOP=sway
+    export ELECTRON_PASSWORD_STORE="gnome-libsecret"
     sway > ~/.log/sway.log 2>&1
 else
     exec fish
