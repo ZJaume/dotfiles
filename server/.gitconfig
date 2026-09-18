@@ -34,6 +34,8 @@
     cm   = commit -m
     uc   = !git reset --soft HEAD^ && git reset HEAD .
 
+    cp   = cherry-pick
+
     d    = diff
     dc   = diff --cached
     dh   = diff HEAD
