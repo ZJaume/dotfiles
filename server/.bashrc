@@ -12,13 +12,16 @@ export SUDO_EDITOR=vim
 paths=(
     "$HOME/.local/bin"
     "/usr/local/go/bin"
-    "$HOME/cuda/lib64"
+    "/usr/local/cuda/bin"
     "$HOME/.cargo/bin"
     "$HOME/go/bin"
 )
 for dir in "${paths[@]}"; do
     if [ -d $dir ] ; then
-        export PATH="$dir:$PATH"
+        case ":$PATH:" in
+            *":$dir:"*) : ;;          # already present, skip
+            *) export PATH="$dir:$PATH" ;;
+        esac
     fi
 done
 # Persistent ssh_auth_sock on old tmuxes
